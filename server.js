@@ -10,6 +10,8 @@ const pool = new Pool ({
     database: 'TodoListDB'
 })
 
+app.use(express.static('public'))
+
 app.use(express.json())
 
 app.get('/todo', async (req,res) => {
