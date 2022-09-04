@@ -15,6 +15,12 @@ app.use(express.static('public'))
 app.use(express.json())
 
 app.get('/todo', async (req,res) => {
+    try {
+        const {rows} = await pool.query('SELECT * FROM todos')
+        res.send(rows)
+    } catch (err) {
+        res.send(err.message)
+    }
     
 })
 
