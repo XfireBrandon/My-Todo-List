@@ -24,11 +24,17 @@ app.get('/todo', async (req,res) => {
     
 })
 
-app.post('/todo', async (req,res) => {
-    
+app.post('/todo/post', async (req,res) => {
+    const {todo} = req.body
+    try {
+        const {rows} = await pool.query('INSERT INTO todos (todo) VALUES ($1)', [todo])
+        res.send(rows)
+    } catch (err){
+        res.send (err.message) 
+    }
 })
 
-app.patch('/todo', async (req,res) => {
+app.patch('/todo/patch/:id', async (req,res) => {
     
 })
 
