@@ -27,7 +27,7 @@ app.get('/todo', async (req,res) => {
 app.post('/todo/post', async (req,res) => {
     const {todo} = req.body
     try {
-        const {rows} = await pool.query('INSERT INTO todos (todo) VALUES ($1)', [todo])
+        const {rows} = await pool.query('INSERT INTO todos (todo) VALUES ($1) RETURNING *', [todo])
         res.send(rows)
     } catch (err){
         res.send (err.message) 
@@ -35,24 +35,31 @@ app.post('/todo/post', async (req,res) => {
 })
 
 app.patch('/todo/patch/:id', async (req,res) => {
-    
-})
-
-app.delete('/todo', async (req,res) => {
     const {id} = req.params
+    const {todo} = req.body
     try {
-        const {rows} = await pool.query('DELETE FROM todos WHERE id > 0')
-        res.send(rows)
+        const {rows} = await pool.query('UPDATE todos SET todo = $1 WHERE id = $2', [todo, id])
     } catch (err) {
         res.send(err.message)
     }
-   
+    
 })
 
+// app.delete('/todo', async (req,res) => {
+//     const {id} = req.body
+//     try {
+//         const {rows} = await pool.query('DELETE FROM todos WHERE id > 0')
+//         res.send(rows)
+//     } catch (err) {
+//         res.send(err.message)
+//     }
+   
+// })
+
 app.delete('/todo/:id', async (req,res) => {
-    const {id} = req.body
+    const {id} = req.params
     try {
-        const {rows} = await pool.query('DELETE FROM todos WHERE todo = %$1%', [id])
+        const {rows} = await pool.query('DELETE FROM todos WHERE id = $1', [id])
         res.send(rows)
     } catch (err) {
         res.send(err.message)

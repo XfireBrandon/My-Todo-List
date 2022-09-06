@@ -12,10 +12,11 @@ function deleteTodo() {
 }
 
 function makeDiv(obj) {
+    const tododata = obj[0]
     const div = document.createElement('h1')
     div.classList.add('todos')
-    div.setAttribute('id',obj.todo)
-    div.textContent = obj.todo
+    div.setAttribute('id',tododata.id)
+    div.textContent = tododata.todo
 
     let btn3 = document.createElement('button');
     btn3.innerHTML = 'deleteTodo';
@@ -25,7 +26,8 @@ function makeDiv(obj) {
     appendDivToContainer(btn3)
 
     btn3.addEventListener('click', async (e) => {
-       const id = e.target.value
+       const id = tododata.id
+       
        const data = await fetch(`http://localhost:8000/todo/${id}`, {
         method: "DELETE",
         headers: {
@@ -44,7 +46,6 @@ function appendDivToContainer(htmlNode) {
 input.addEventListener('keypress', async (e) => {
     if (e.key === 'Enter') {
         const todos = {
-            "id": e.target.id,
             "todo": e.target.value
         }
         const response = await fetch('http://localhost:8000/todo/post', {
@@ -54,7 +55,10 @@ input.addEventListener('keypress', async (e) => {
             },
             body: JSON.stringify(todos)
         });
-        makeDiv(todos)
+        let data = await response.json()
+        makeDiv(data)
+       
+        
        
     }
     
