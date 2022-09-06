@@ -5,14 +5,26 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <script
+    src="https://code.jquery.com/jquery-2.2.4.js"
+    integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI="
+    crossorigin="anonymous"></script>
     <link rel="stylesheet" href="./main.css">
 </head>
 <body>
-    <h1>Working from server</h1>
-    <input type="text" id="input"><br><br>
+    <div id="topBar">
+        <div id="logo">My Todo List</div>
+        <div class="btn" id="clearButton">Clear Todo List</div> 
+    </div>
 
-    <div class="btn" id="mainBtn">Click Me</div>  
-    <div class="btn" id="clearButton">Clear Todo's</div>  
+   
+
+    <div id="container">
+    <input type="text" id="input">
+    </div>
+
+    <!-- <div class="btn" id="mainBtn">Clear todo</div>   -->
+    
 
 
     <script src="./main.js"></script>
