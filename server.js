@@ -50,9 +50,9 @@ app.delete('/todo', async (req,res) => {
 })
 
 app.delete('/todo/:id', async (req,res) => {
-    const {id} = req.params
+    const {id} = req.body
     try {
-        const {rows} = await pool.query('DELETE FROM todos WHERE id = $1', [id])
+        const {rows} = await pool.query('DELETE FROM todos WHERE todo = %$1%', [id])
         res.send(rows)
     } catch (err) {
         res.send(err.message)
