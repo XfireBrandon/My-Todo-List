@@ -1,9 +1,6 @@
-const btn = document.querySelector('#mainBtn')
+
 const gBtn = document.querySelector('#showAll')
 const container = document.querySelector('#container')
-
-
-
 
 const input = document.querySelector('#input')
 
@@ -12,17 +9,6 @@ function hideTodos() {
     $(hideTodo).empty()
 }
 
-// function makeContainer() {
-// const editContainer = document.createElement('editContainer')
-// editContainer.className = 'edit'
-
-// const input2 = document.createElement('input')
-// editContainer.appendChild(input2)
-
-
-
-// container.appendChild(editContainer)
-// }
 
 function appendDivToContainer(htmlNode) {
     container.appendChild(htmlNode)
@@ -41,7 +27,7 @@ input.addEventListener('keypress', async (e) => {
             body: JSON.stringify(todos)
         });
         let data = await response.json()
-        // getAll()
+
        window.location.reload()
         
        
@@ -57,30 +43,6 @@ const appendTocontainer = (data) => {
     container.appendChild(div)
    
 }
-
-// const deleteButton = () => {
-//     const btn3 = document.createElement('button')
-//     btn3.innerHTML = 'deleteTodo';
-    
-//     btn3.addEventListener('click', async (e) => {
-//         const id = e.target.value
-//         const data = await fetch(`http://localhost:8000/todo/${id}`, {
-//          method: "DELETE",
-//          headers: {
-//              'Content-type': 'text/plain'
-//          }
-//      });
-//         const json = await data.json()
-//       console.log(json)
-//         //  div.remove()
-//         //  btn3.remove()
-        
-//      })
-//      appendDivToContainer(btn3)
-// }
-
-
-
 
  const getAll =  async () => {
     const data = await fetch('http://localhost:8000/todo')
