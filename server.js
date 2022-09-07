@@ -38,7 +38,7 @@ app.patch('/todo/patch/:id', async (req,res) => {
     const {id} = req.params
     const {todo} = req.body
     try {
-        const {rows} = await pool.query('UPDATE todos SET todo = $1 WHERE id = $2', [todo, id])
+        const {rows} = await pool.query('UPDATE todos SET todo = $1 WHERE id = $2 RETURNING *', [todo, id])
     } catch (err) {
         res.send(err.message)
     }
