@@ -45,17 +45,6 @@ app.patch('/todo/patch/:id', async (req,res) => {
     
 })
 
-// app.delete('/todo', async (req,res) => {
-//     const {id} = req.body
-//     try {
-//         const {rows} = await pool.query('DELETE FROM todos WHERE id > 0')
-//         res.send(rows)
-//     } catch (err) {
-//         res.send(err.message)
-//     }
-   
-// })
-
 app.delete('/todo/:id', async (req,res) => {
     const {id} = req.params
     try {

@@ -1,15 +1,21 @@
 * {
     padding: 0;
     margin: 0;
-    --pink:rgb(241, 108, 228);
-    --black: rgb(52, 52, 52);
+    --yellow:rgb(205, 205, 4);
+    --black: rgb(66, 66, 66);
+    --white: #FFFFEA;
+}
+body {
+    background-color: var(--white);
 }
 
 #topBar {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     background-color: var(--black);
-    height: 4.5rem;
+    height: 7rem;
+    border-bottom-left-radius: 50%;
+    border-bottom-right-radius: 50%;
 }
 
 #container {
@@ -17,22 +23,34 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    border: .1rem solid black;
-    margin-left: 10%;
-    margin-right: 10%;
+    border: .3rem solid black;
+    margin-left: 15%;
+    margin-right: 15%;
     margin-top: 1%;
+    border-radius: 15%;
+    background-color: white;
+}
+
+#highlight {
+    color: var(--yellow);
+    font-family: 'Masiku', sans-serif;
+    font-size: 4rem;
 }
 
 #logo {
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 3.5rem;
-    color: var(--pink); 
+    font-family: 'Futura Primer', sans-serif;
+    font-size: 3rem;
+    color: white; 
     padding-top: .3rem;
     padding-left: .6rem;
 }
 
 h1 {
-    color: var(--pink);
+    display: flex;
+    justify-content: space-between;
+    color: var(--black);
+    font-family: 'Nekophilia', sans-serif;
+    font-size: 3rem;
 }
 
 input[type=text] {
@@ -41,21 +59,26 @@ input[type=text] {
     margin: 8px 0;
     box-sizing: border-box;
     text-align: center;
+    font-family: 'Nekophilia', sans-serif;
+    font-size: 2rem;
+    color: var(--black);
   }
 
-.btn {
+
+
+button {
     font-family: Arial, Helvetica, sans-serif;
-    background-color: var(--black);   
+    background-color: white;   
     border: none;
-    color: white;
-    padding-top: 1.5rem;
-    font-size: 1.5rem;
+    color: var(--black);
+    padding-top: .5rem;
+    font-size: .8rem;
     padding-right: 1rem;
     transition: .5s ease;
 }
 
-.btn:hover {
+button:hover {
     cursor: pointer;
-    color: var(--pink);
+    color: var(--yellow);
 
 }

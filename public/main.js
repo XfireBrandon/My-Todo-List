@@ -1,6 +1,7 @@
 
 const gBtn = document.querySelector('#showAll')
 const container = document.querySelector('#container')
+const container2 = document.querySelector('#container2')
 
 const input = document.querySelector('#input')
 
@@ -67,7 +68,7 @@ const appendTocontainer = (data) => {
          })
 
          const editBtn = document.createElement('button')
-         editBtn.innerHTML = 'Submit'
+         editBtn.innerHTML = 'Submit Change'
 
          editBtn.addEventListener('click', () => {
              document.location.reload()
@@ -94,10 +95,9 @@ const appendTocontainer = (data) => {
             let patchData = await data.json();
              }  
          })
-         appendDivToContainer(btn3)
          appendDivToContainer(input2)
          appendDivToContainer(editBtn)
-        
+         appendDivToContainer(btn3)
     })
     
 }
